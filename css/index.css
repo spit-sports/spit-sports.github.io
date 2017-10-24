@@ -73,15 +73,17 @@ main {
 }
 
 #news {
-    background-image: url('../images/beach.jpg');
+    background-image: url('../images/track.jpg');
     background-size: cover;
-    padding: 40px 0;
+    height: 100vh;
+    padding: 50px 10px;
 }
 
 #news .container {
     background-color: white;
-    height: 100vh;
+    height: 100%;
     padding: 10px 20px;
+    max-width: 750px;
 }
 
 #news li {
