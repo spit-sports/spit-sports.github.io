@@ -23,9 +23,9 @@ function initMap() {
     var markers = [];
 
     var map = new google.maps.Map(document.getElementById('map'), mapData.location);
-    map.setOptions({
-        styles: JSON.parse(mapData.style.json)
-    });
+    // map.setOptions({
+    //     styles: JSON.parse(mapData.style.json)
+    // });
 
     // Add markers
     for (var i in mapData.markers) {
