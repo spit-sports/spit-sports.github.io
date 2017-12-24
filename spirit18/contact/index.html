@@ -14,42 +14,124 @@
         crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../css/common.css">
+
+    <style>
+        header {
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        #googleMap {
+            width: 100%;
+            height: 400px;
+        }
+
+        img {
+            box-shadow: none;
+        }
+
+        main {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <div class="container">
             <a href="/" class="navbar-brand">Sports @ S.P.I.T.</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="/spirit18">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/spirit18/events">Events</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/spirit18/sponsors">Sponsors</a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/spirit18/contact">Contact Us <span class="sr-only">(current)</span></a>
-                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/spirit18">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/spirit18/events">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/spirit18/sponsors">Sponsors</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/spirit18/contact">Contact Us
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
                 </ul>
-              </div>
-            
+            </div>
+
         </div>
     </nav>
+
+    <header class="container text-center">
+        <h1>Contact Us</h1>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md">
+                <p>
+                    <span class="glyphicon glyphicon-phone"></span> Rohit Kodate : +91 99697 45812
+                </p>
+                <p>
+                    <span class="glyphicon glyphicon-phone"></span> Sharvika Raut : +91 94207 72761
+                </p>
+                <p>
+                    <span class="glyphicon glyphicon-map-marker"></span> SPCE-SPIT, Bhavan's college campus, Munshi Nagar, Andheri (West) Mumbai - 400 058
+                </p>
+                <div id="footer">
+                    <a href="https://www.facebook.com/SPiritSportsFest" target="_blank">
+                        Like us on Facebook for regular updates
+                    </a>
+                </div>
+            </div>
+            <div class="col-md">
+                <div id="googleMap"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Made with
+        <span style="color: red">❤</span> by Sports Committee @ Sardar Patel Institute of Technology
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="../../js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script src="../../js/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="../../js/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
     <script src="../../js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
+    <!-- GOOGLE MAPS -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2jT03FT1irI5HMVavEFwxrhXXpkDQevo"></script>
+    <script>
+        var myCenter = new google.maps.LatLng(19.123853, 72.836122);
+        function initialize() {
+            var mapProp = {
+                center: myCenter,
+                zoom: 13,
+                scrollwheel: false,
+                draggable: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+
+            marker.setMap(map);
+        }
+
+        $(initialize);
+    </script>
+
 </body>
 
 </html>
