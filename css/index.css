@@ -12,14 +12,6 @@ nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 -1px 0px rgba(0, 0, 0, 0.02);
 }
 
-.navbar-brand {
-    color: white;
-}
-
-.navbar-brand:hover {
-    color: #eee;
-}
-
 header {
     z-index: -1;
     height: 100vh;
@@ -104,10 +96,4 @@ main {
 
 #team img {
     width: 100%;
-}
-
-footer {
-    background-color: #eeeeee;
-    padding: 40px;
-    text-align: center;
 }
