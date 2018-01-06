@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 #map {
@@ -52,13 +52,6 @@ body {
     background-color: #eee;
 }
 
-#box h1 {
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 6rem;
-    font-weight: lighter;
-}
-
 #date {
     text-align: center;
     font-size: 4rem;
@@ -98,6 +91,23 @@ body {
 
 .present {
     display: block;
+}
+
+#content {
+    text-align: center;
+    font-size: 16pt;
+}
+
+#title {
+    background: #00b09b;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #96c93d, #00b09b);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #96c93d, #00b09b);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Quattrocento', serif;
 }
 
 
