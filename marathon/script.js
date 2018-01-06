@@ -19,26 +19,33 @@ $(function () {
 });
 
 function initMap() {
-    var mapData = getMapData();
-    var markers = [];
+    let mapData = getMapData();
+    let markers = [];
 
-    var map = new google.maps.Map(document.getElementById('map'), mapData.location);
+    let map = new google.maps.Map(document.getElementById('map'), mapData.location);
     // map.setOptions({
     //     styles: JSON.parse(mapData.style.json)
     // });
 
     // Add markers
-    for (var i in mapData.markers) {
-        var marker = new google.maps.Marker({
+    for (let i in mapData.markers) {
+        let marker = new google.maps.Marker({
             position: mapData.markers[i].location,
             title: mapData.markers[i].name,
             map: map
+        });
+        let contentString = getInfoWindowString(mapData.markers[i].name);
+        let infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
         });
         markers.push(marker);
     }
 
     // Add polyline
-    var route = new google.maps.Polyline({
+    let route = new google.maps.Polyline({
         path: mapData.route,
         geodesic: true,
         strokeColor: '#000000',
@@ -46,6 +53,10 @@ function initMap() {
         strokeWeight: 3
     });
     route.setMap(map);
+}
+
+function getInfoWindowString(title) {
+    return '<span class="marker-title">' + title + '</span>';
 }
 
 function getMapData() {

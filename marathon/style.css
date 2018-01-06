@@ -110,6 +110,10 @@ body {
     font-family: 'Quattrocento', serif;
 }
 
+/* INFO WINDOW */
+.marker-title {
+    font-size: 16pt;
+}
 
 /* BOX STYLE */
 
