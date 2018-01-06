@@ -1,5 +1,5 @@
 mapView = false;
-$(function() {
+$(function () {
     // $('#content section:first-child').addClass('present');
     setMapText();
     $('#box').slideDown();
@@ -7,14 +7,14 @@ $(function() {
         theme: 'minimal-dark'
     });
 
-    $('#toggle').click(function() {
+    $('#toggle').click(function () {
         $('#box').slideToggle();
         mapView = !mapView;
         setMapText();
     });
 
     function setMapText() {
-        (mapView) ? $('#toggle-btn').text('Go to Info') : $('#toggle-btn').text('Go To Map');
+        (mapView) ? $('#toggle-btn').text('Go to Info'): $('#toggle-btn').text('Go To Map');
     }
 });
 
