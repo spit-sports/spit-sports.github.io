@@ -67,7 +67,7 @@ main {
 #news {
     background-image: url('../images/track.jpg');
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     padding: 50px 10px;
 }
 
