@@ -71,7 +71,6 @@
 
     <header class="container text-center">
         <h1>Register</h1>
-        <span>Registrations opening soon!</span>
     </header>
 
     <main class="container">
@@ -99,28 +98,28 @@
             </div>
             <div class="form-group">
                 <label for="inputName">Full Name</label>
-                <input disabled type="text" class="form-control" name="inputName" aria-describedby="nameHelp" placeholder="Enter name" required>
+                <input type="text" class="form-control" name="inputName" aria-describedby="nameHelp" placeholder="Enter name" required>
                 <small id="nameHelp" class="form-text text-muted">For team events, mention the name of the captain.</small>
             </div>
             <div class="form-group">
                 <label for="inputEmail">Email address</label>
-                <input disabled type="email" class="form-control" name="inputEmail" aria-describedby="emailHelp" placeholder="Enter email address"
+                <input type="email" class="form-control" name="inputEmail" aria-describedby="emailHelp" placeholder="Enter email address"
                     required>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. 😉</small>
             </div>
             <div class="form-group">
                 <label for="inputNumber">Contact number</label>
-                <input disabled type="text" class="form-control" name="inputNumber" placeholder="Enter contact number" required>
+                <input type="text" class="form-control" name="inputNumber" placeholder="Enter contact number" required>
             </div>
             <div class="form-group">
                 <label for="inputCollege">College</label>
-                <input disabled type="text" class="form-control" name="inputCollege" placeholder="Enter college" required>
+                <input type="text" class="form-control" name="inputCollege" placeholder="Enter college" required>
             </div>
             <div class="form-group">
                 <label for="inputDescription">Description</label>
-                <textarea disabled class="form-control" name="inputDescription" placeholder="Details like team members, etc."></textarea>
+                <textarea class="form-control" name="inputDescription" placeholder="Details like team members, etc."></textarea>
             </div>
-            <button disabled type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </main>
 
@@ -142,20 +141,33 @@
     <script>
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            // axios.post('/user', {
-            //         'inputEvent': form.inputEvent.value,
-            //         'inputName': form.inputName.value,
-            //         'inputEmail': form.inputEmail.value,
-            //         'inputNumber': form.inputNumber.value,
-            //         'inputCollege': form.inputCollege.value,
-            //         'inputDescription': form.inputDescription.value,
-            //     })
-            //     .then(function (response) {
-            //         console.log(response);
-            //     })
-            //     .catch(function (error) {
-            //         console.log(error);
-            //     });
+            axios.post('http://ashnehet.heliohost.org/spoorthi_register.php', {
+                    'inputEvent': form.inputEvent.value,
+                    'inputName': form.inputName.value,
+                    'inputEmail': form.inputEmail.value,
+                    'inputNumber': form.inputNumber.value,
+                    'inputCollege': form.inputCollege.value,
+                    'inputDescription': form.inputDescription.value,
+                })
+                .then(function (response) {
+                    console.log(response);
+                    let data = response.data;
+                    if (data.hasOwnProperty('success') && data.success == true) {
+                        swal({
+                            title: 'Successfully Registered',
+                            icon: 'success'
+                        });
+                    } else if (data.hasOwnProperty('error')) {
+                        swal({
+                            title: 'Oops...',
+                            icon: 'error',
+                            text: data.error
+                        })
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         });
     </script>
 </body>
