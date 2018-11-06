@@ -10,8 +10,9 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous"> -->
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/common.css">
 
@@ -30,54 +31,132 @@
         main {
             padding: 20px;
         }
+        nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
+}       
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
+nav ul li a:hover {
+  color: #555;
+}
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+nav.fill ul li a {
+  transition: all 2s;
+}
+
+nav.fill ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+nav.fill ul li a:hover {
+  color: #fff;
+  z-index: 1;
+}
+nav.fill ul li a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
+
+/* Keyframes */
+@-webkit-keyframes fill {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: red;
+  }
+}
     </style>
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark fill">
         <div class="container">
-            <a href="/" class="navbar-brand">Sports @ S.P.I.T.</a>
+            <a href="../index.html" class="navbar-brand">Sports @ S.P.I.T.</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse"  id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Home
+                        <a class="nav-link" href="..">Home</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./events/newindex.html">Events
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="events">Events</a>
+                        <a class="nav-link" href="./register/index.html">Register</a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="../sponsors">Sponsors</a>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="register">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sponsors">Sponsors</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact Us</a>
+                        <a class="nav-link" href="./contact/index.html">Contact Us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <header class="text-center">
-        <img src="images/logo.png" alt="SPoorthi 2018">
-        <div id="date">February 1 to Febraury 10</div>
+        <img id="spoorthi19" src="../images/spoorthi19.jpg"  alt="SPoorthi 2018">
+        <div id="date">January 2 to January 14</div>
     </header>
 
     <main>
         <div class="container">
-            <a href="register">CLICK HERE TO REGISTER</a>
-            <h1>About SPoorthi'18</h1>
+            <a href="./register/index.html">CLICK HERE TO REGISTER</a>
+            <h1>About SPoorthi'19</h1>
             SPoorthi is the sports fest organized by Sardar Patel Institute Of Technology which brings together thousands of individuals
             across Mumbai and other cities to compete amongst each other and be the best. The series of sports events organized
             at SPoorthi aim at challenging the skills of an individual thus boosting it and mainly keeping the sportsmanspirit
-            within us ALIVE. The fire within should never burn is what is the motto of this fest.
+            within us ALIVE. The fire within should never burn out is what is the motto of this fest.
         </div>
     </main>
 
@@ -88,11 +167,14 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="../js/jquery-3.2.1.slim.min.js" ></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- <script src="../js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="../js/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="../js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
 </body>
 
 </html>

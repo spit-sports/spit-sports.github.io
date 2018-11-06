@@ -46,11 +46,11 @@ main {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    background: #00b09b;
+    background: red;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #96c93d, #00b09b);
+    background: -webkit-linear-gradient(to right, red, black);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #96c93d, #00b09b);
+    background: linear-gradient(to right, red, black);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;

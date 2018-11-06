@@ -1,0 +1,110 @@
+.demo-grid {
+	--body-text: #585858;
+	--body-text-alt: #cf1d56;
+	--body-bg: #010101;
+	--link-text: #c7c5c5;
+	--link-text-hover: #fff;
+	--content-font: "Cormorant Garamond", sans-serif;
+}
+
+.content {
+	background: #f9f7dd;
+	--pieces-height: 90vh;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.page-nav {
+	position: absolute;
+	width: 90%;
+	height: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	font-family: var(--content-font);
+}
+
+.page-nav__item {
+	font-size: 10vh;
+}
+
+.page-nav__item--close {
+	font-size: 1.85em;
+	margin: 1em 0 0 0;
+	color: var(--body-text-alt);
+	position: relative;
+}
+
+.page-nav__item--close:hover,
+.page-nav__item--close:focus {
+	color: var(--body-text-alt);
+	text-decoration: line-through;
+}
+
+.content__title {
+	margin: 0;
+	position: relative;
+	/* color:red; */
+	font-weight: bold;
+	font-family: 'Ultra', sans-serif;   
+	font-size: 8vw;
+	line-height: 8vw;
+	text-transform: uppercase;
+    background: -webkit-linear-gradient(red,black);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 3px;
+-webkit-text-stroke-color: black;
+}
+
+.page-nav--open ~ .content__title {
+	pointer-events: none;
+}
+@media screen and (min-device-width: 600px) {
+	.content .pieces{
+		width:100vw;
+		height:100vh;
+		top:45%;
+		left:20%;
+		position: absolute;
+	margin-left: calc(-1 * var(--pieces-height) * calc(888/1000) / 2);
+	margin-top: calc(-1 * var(--pieces-height) / 2);
+	pointer-events: none;
+	}
+}
+@media screen and (max-device-width: 601px){
+.content .pieces {
+	height: var(--pieces-height);
+	width: calc(var(--pieces-height) * calc(888/1000));
+	top:57%;
+	left:50%;
+	position: absolute;
+	margin-left: calc(-1 * var(--pieces-height) * calc(888/1000) / 2);
+	margin-top: calc(-1 * var(--pieces-height) / 2);
+	pointer-events: none;
+}
+.content__title {
+	font-size: 15vw;
+	line-height: 15vw;
+}
+}
+
+@media screen and (max-width: 600px) {
+	.content {
+		--pieces-height: 50vh;
+		height: var(--pieces-height);
+		margin-bottom: 8em;
+	}
+	
+	.page-nav__item {
+		font-size: 6vh;
+	}
+}
