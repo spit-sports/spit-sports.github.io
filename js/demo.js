@@ -327,7 +327,15 @@
             if ( !this.isPreviewOpen ) return;
             this.isPreviewOpen = false;
             this.overlay.hide();
-            
+            var i;
+            for(i=1;i<=14;i++)
+            {
+                var el='reg'+i;
+                console.log(el);
+                document.getElementById(el).style.opacity=0;   
+                document.getElementById(el).style.zIndex=1000;   
+            }
+            //document.getElementById('reg').style.opacity=0;
             for (let item of this.items) {
                 for (let key in item.DOM.animatable) {
                     const el = item.DOM.animatable[key];
